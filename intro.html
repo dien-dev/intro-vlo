@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    sm: { max: "767px" },
+                    // => @media (max-width: 767px) { ... }
+
+                    md: { min: "768px", max: "1023px" },
+                    // => @media (min-width: 768px and max-width: 1023px) { ... }
+
+                    smd: { max: "1023px" },
+                    // => @media (max-width: 1023px) { ... }
+
+                    lg: { min: "1024px", max: "1279px" },
+                    // => @media (min-width: 1024px and max-width: 1279px) { ... }
+
+                    xl: { min: "1280px" },
+                    // => @media (min-width: 1280px) { ... }
+
+                    "2xl": { min: "1536px" },
+                    // => @media (min-width: 1536px) { ... }
+                },
+                extend: {
+                    margin: {
+                        'carousel': '8.3333335%',
+                        'carousel-sm': '4.166665%',
+                        'minus18': '-18px',
+                        'charge76': '76px',
+                    },
+                    padding: {
+                        '18px': '18px',
+                    },
+                    width: {
+                        '37.5p': '37.5%',
+                        '84px': '84px',
+                        '12p': '12%',
+                        '48p': '48%',
+                        '66p': '66%',
+                        '72p': '72%',
+                        '96p': '96%',
+                    },
+                    maxWidth: {
+                        '128': '128px',
+                    },
+                    height: {
+                        '84px': '84px',
+                        '120px': '120px',
+                    },
+                    fontSize: {
+                        'slogan__title': ['47px', '60px'],
+                    },
+                },
+                boxShadow: {
+                    'news': '0px 5px 5px rgba(0, 0, 0, 0.1)',
+                    'navbar': '0px 0px 5px rgba(0, 0, 0, 0.2)',
+                    'charge': '0px 0px 32px rgba(0, 0, 0, 0.1)',
+                    'reasonItem': '0px 0px 10px rgba(0, 0, 0, 0.1)',
+                },
+                backgroundSize: {
+                    'wh100': '100% 100%',
+                }
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+      @font-face {
+          font-family: Inter;
+          src: url(Fonts/Inter-VariableFont_slnt\,wght.ttf);
+      }
+
+      * {
+          scroll-behavior: smooth;
+      }
+
+
+      html {
+          font-size: 16px;
+          font-style: normal;
+          font-family: 'Inter';
+          color: var(--text-color);
+      }
+
+      body {
+          margin: 0;
+          padding: 0;
+          scroll-behavior: smooth;
+          box-sizing: border-box;
+          text-rendering: optimizeSpeed;
+          background-color: var(--background-color);
+      }
+      .mw-1200 {
+        max-width: 1200px;
+      }
+      .row-pc-big {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -12px;
+        margin-right: -12px;
+      }
+      .mw-984 {
+        width: 984px;
+      }
+      .row-pc {
+        margin-left: -8px;
+        margin-right: -8px;
+      }
+      .mw-668 {
+        width: 668px;
+      }
+      .row-tl-mb {
+        margin-left: -4px;
+        margin-right: -4px;
+      }
+      .checkmark {
+        position: absolute;
+        transform: rotate(45deg) translate(-50%, -50%);
+        left: 30%;
+        top: 45%;
+        height: 8px;
+        width: 4px;
+        border-bottom: 2px solid rgb(255, 255, 255, 1);
+        border-right: 2px solid rgb(255, 255, 255, 1);
+      }
+      :root {
+          --primary-color: #ed1c24;
+          --primary-color--hover: rgba(246, 49, 51, 0.7);
+          --white-color: rgb(255, 255, 255, 1);
+          --white02-color: rgb(255, 255, 255, 0.2);
+          --black-color: rgb(0, 0, 0);
+
+          --background-color: rgb(245, 245, 245);
+          --background-subColor: rgb(249, 249, 249);
+          --background-ColorE8262D: rgb(232, 38, 45);
+          --background-ColorE8262D--hover: rgba(232, 38, 45, 0.7);
+          --background-ColorFAD4D5: rgb(250, 212, 213);
+
+          --text-color: rgb(57, 62, 74);
+          --subtext-color: rgb(95, 102, 119);
+          --text-colorF63133: rgb(246, 49, 51);
+
+          --underline-colorF1F1F2: rgb(241, 241, 242);
+
+          --borderNews-color: rgba(95, 102, 119, 0.5);
+          --borderNews-color--active: rgb(237, 28, 36);
+      }
+    }
+  </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="./assets/Fonts/fontawesome-free-6.1.1/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <title>WEB VLO - Inter.ai</title>
+</head>
+
+<body>
+    <div class="app">
+        <!-- Begin header -->
+        <header
+            class="mw-1200 mx-auto my-0 lg:mw-984 md:mw-668">
+            <div class="w-10/12 flex justify-between items-center mx-auto my-4 sm:w-11/12">
+                <img onclick="window.location.href='https://velaone-homepage-html.vercel.app'"
+                    src="./assets/img/logo.svg" alt="logo" class="logo">
+                </img>
+                <div class="flex items-center leading-9 md:hidden sm:hidden">
+                    <a href="#" class="no-underline text-sm font-normal mr-6">Giới thiệu</a>
+                    <a href="#" class="no-underline text-sm font-normal mr-6">Biểu Phí</a>
+                    <a class="no-underline text-sm font-normal mr-6 group">
+                        Tin Tức
+                        <ul
+                            class="hidden group-hover:flex w-36 m-0 p-0 list-none flex-col absolute bg-[color:var(--white-color)] shadow-news z-10">
+                            <li onclick="window.location.href='https://velaone-homepage-html.vercel.app/serviceNews.html'"
+                                class="border-t border-solid border-[color:var(--borderNews-color)] hover:border-[color:var(--borderNews-color--active)]">
+                                <span
+                                    class="block h-7 leading-7 text-xs my-auto font-normal cursor-pointer ml-2 text-left">
+                                    Tin Dịch Vụ </span>
+                            </li>
+                            <li onclick="window.location.href='https://velaone-homepage-html.vercel.app/marketNews.html'"
+                                class="border-t border-solid border-[color:var(--borderNews-color)] hover:border-[color:var(--borderNews-color--active)]">
+                                <span
+                                    class="block h-7 leading-7 text-xs my-auto font-normal cursor-pointer ml-2 text-left">
+                                    Tin Thị Trường </span>
+                            </li>
+                        </ul>
+                    </a>
+                    <a href="https://velaone-homepage-html.vercel.app/register.html"
+                        class="no-underline text-sm font-normal mr-6">Liên Hệ</a>
+                    <button onclick="window.location.href='http://one.vela.asia/'"
+                        class="w-32 h-9 text-sm font-medium bg-[color:var(--primary-color)] hover:bg-[color:var(--primary-color--hover)] p-0 border-none rounded-lg cursor-pointer text-[color:var(--white-color)]">Đăng
+                        nhập</button>
+                </div>
+                <!-- mobile and tablet -->
+                <button class="js-menu hidden rounded cursor-pointer md:flex sm:flex">
+                    <i
+                        class="fa-solid fa-bars-staggered h-12 w-12 text-5xl text-[color:var(--primary-color)] p-0 border-none "></i>
+                </button>
+            </div>
+        </header>
+        <!-- End header -->
+        <!-- Begin intro -->
+        <div class="mw-1200 mx-auto my-0 lg:mw-984 md:mw-668 bg-[#F3F3F3]">
+            <div class="w-10/12 mx-auto smd:w-11/12">
+                <h3 class="font-normal text-2xl mb-7 smd:mb-5">GIỚI THIỆU</h3>
+                <div class="row-pc-big justify-between smd:justify-center lg:row-pc smd:row-tl-mb">
+                    <div class="w-1/2 px-3 lg:px-2 smd:px-1 smd:w-full">
+                        <div class="w-[95%] smd:w-full">
+                            <h2 class="text-4xl	smd:text-2xl font-semibold mb-[18px] smd:mb-3">VELA ONE là gì?</h2>
+                            <div class="border-t-4 border-[color:var(--primary-color)] w-1/5 mb-[18px] smd:mb-3"></div>
+                            <div class="text-base font-normal mb-9 smd:mb-5">VELA ONE là công ty chuyên cung cấp giải
+                                pháp vận
+                                hành TMĐT trọn gói tại các quốc gia ASEAN, giúp các đơn vị kinh doanh (vendor) mở rộng
+                                thị trường thành công với chi phí tiết kiệm nhất.</div>
+                            <h2 class="text-4xl	smd:text-2xl font-semibold mb-[18px] smd:mb-3">Sứ Mệnh</h2>
+                            <div class="border-t-4 border-[color:var(--primary-color)] w-1/5 mb-[18px] smd:mb-3"></div>
+                            <div class="text-base font-normal mb-9 smd:mb-5">Chúng tôi hướng đến việc cung cáp giải pháp
+                                trọn gói
+                                và đồng bộ về hậu cần TMĐT, bao gồm nền tảng công nghệ, kho bãi, vận chuyển. Từ đó giúp
+                                nhà kinh doanh dễ dàng quản lý bán hàng đa kênh và tự động hóa việc hoàn tất đơn hàng
+                                TMĐT.</div>
+                            <h2 class="text-4xl	smd:text-2xl font-semibold mb-[18px] smd:mb-3">Tầm Nhìn</h2>
+                            <div class="border-t-4 border-[color:var(--primary-color)] w-1/5 mb-[18px] smd:mb-3"></div>
+                            <div class="text-base font-normal mb-16 smd:mb-5">VELA ONE nỗ lực trở thành đơn vị cung cấp
+                                dịch vụ
+                                vận hành TMĐT hàng đầu Đông Nam Á, có thể kết nối với các đối tác lớn và uy tín trong
+                                khu vực nhằm đơn giản hóa việc mở rộng thị trường kinh doanh TMĐT của các vendor trong
+                                khu vực và quốc tế.</div>
+                        </div>
+                    </div>
+                    <div class="w-1/2 px-3 lg:px-2 smd:px-1 smd:w-full md:h-60 sm:h-44 mb-8">
+                        <div
+                            class="flex bg-[url(./assets/img/intro/intro.png)] bg-no-repeat bg-[length:100%_100%] h-[94%] smd:h-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="mw-1200 mx-auto my-0 lg:mw-984 md:mw-668 bg-[color:var(--white-color)]">
+            <h3
+                class="text-center w-[98%] mx-auto text-4xl font-semibold mb-[18px] pt-14 md:text-2xl sm:text-xl smd:pt-6 sm:w-[96%] sm:text-xl">
+                VELA ONE cung cấp dịch vụ tại các Quốc Gia
+            </h3>
+            <div class="border-t-4 border-[color:var(--primary-color)] w-1/5 mx-auto mb-9 smd:mb-3"></div>
+            <div class="flex justify-center mx-auto mb-6 smd:mb-5 smd:mx-4">
+                <ul
+                    class="row-pc-big justify-between smd:justify-center lg:row-pc smd:row-tl-mb list-none w-10/12 sm:w-full">
+                    <li class="px-3 lg:px-2 sm:px-1 w-1/6 smd:w-1/3">
+                        <div class="flex flex-col items-center mb-14 smd:mb-8">
+                            <div class="font-semibold text-lg text-center smd:text-base">VIETNAM</div>
+                            <img src="./assets/img/intro/intro_vietnam.png" alt="intro_vietnam">
+                        </div>
+                    </li>
+                    <li class="px-3 lg:px-2 sm:px-1 w-1/6 smd:w-1/3">
+                        <div class="flex flex-col items-center mb-14 smd:mb-8">
+                            <div class="font-semibold text-lg text-center smd:text-base">PHILIPPINES</div>
+                            <img src="./assets/img/intro/intro_philippines.png" alt="intro_philippines">
+                        </div>
+                    </li>
+                    <li class="px-3 lg:px-2 sm:px-1 w-1/6 smd:w-1/3">
+                        <div class="flex flex-col items-center mb-14 smd:mb-8">
+                            <div class="font-semibold text-lg text-center smd:text-base">INDONESIA</div>
+                            <img src="./assets/img/intro/intro_indonesia.png" alt="intro_indonesia">
+                        </div>
+                    </li>
+                    <li class="px-3 lg:px-2 sm:px-1 w-1/6 smd:w-1/3">
+                        <div class="flex flex-col items-center mb-14 smd:mb-8">
+                            <div class="font-semibold text-lg text-center smd:text-base">THAILAND</div>
+                            <img src="./assets/img/intro/intro_thailand.png" alt="intro_thailand">
+                        </div>
+                    </li>
+                    <li class="px-3 lg:px-2 sm:px-1 w-1/6 smd:w-1/3">
+                        <div class="flex flex-col items-center mb-14 smd:mb-8">
+                            <div class="font-semibold text-lg text-center smd:text-base">MALAYSIA</div>
+                            <img src="./assets/img/intro/intro_malaysia.png" alt="intro_malaysia">
+                        </div>
+                    </li>
+                    <li class="px-3 lg:px-2 sm:px-1 w-1/6 smd:w-1/3">
+                        <div class="flex flex-col items-center mb-14 smd:mb-8">
+                            <div class="font-semibold text-lg text-center smd:text-base">CAMBODIA</div>
+                            <img src="./assets/img/intro/intro_cambodia.png" alt="intro_cambodia">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--  -->
+        <div class="mw-1200 mx-auto my-0 lg:mw-984 md:mw-668">
+            <h3
+                class="text-center w-[98%] mx-auto text-4xl font-semibold mb-[18px] pt-9 md:text-2xl sm:text-xl sm:pt-6 sm:w-[96%] sm:text-xl">
+                VELA ONE cung cấp các dịch vụ
+            </h3>
+            <div class="border-t-4 border-[color:var(--primary-color)] w-1/5 mx-auto mb-9 smd:mb-3"></div>
+            <div class="w-9/12 mx-auto smd:w-full">
+                <div class="row-pc-big justify-between smd:justify-center lg:row-pc smd:row-tl-mb">
+                    <div class="w-2/6 px-3 lg:px-2 smd:px-1 mb-8">
+                        <div
+                            class="flex bg-[url(./assets/img/intro/intro_spaceship.png)] bg-no-repeat bg-[length:100%_100%] h-full">
+                        </div>
+                    </div>
+                    <div class="w-4/6 px-3 lg:px-2 smd:px-1">
+                        <div
+                            class="flex items-center mb-10 lg:mb-4 smd:mb-4 bg-gradient-to-r from-[color:var(--white02-color)] to-[color:var(--white-color)]">
+                            <img class="w-10 h-10 mr-6 sm:h-8 sm:w-8 sm:mr-3" src="./assets/img/intro/intro_media.png"
+                                alt="intro_media">
+                            <div class="text-2xl font-medium lg:text-base smd:text-sm">DỊCH VỤ TRUYỀN THÔNG CHUYÊN SÂU
+                                <br> (VELA MEDIA)
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center mb-10 lg:mb-4 smd:mb-4 bg-gradient-to-r from-[color:var(--white02-color)] to-[color:var(--white-color)]">
+                            <img class="w-10 h-10 mr-6 sm:h-8 sm:w-8 sm:mr-3"
+                                src="./assets/img/intro/intro_solution.png" alt="intro_solution">
+                            <div class="text-2xl font-medium lg:text-base smd:text-sm">QUẢN LÝ VẬN HÀNH SÀN TMĐT, TIKTOK
+                                SHOP <br>
+                                (VELA E-SOLUTIONS)</div>
+                        </div>
+                        <div
+                            class="flex items-center mb-10 lg:mb-4 smd:mb-4 bg-gradient-to-r from-[color:var(--white02-color)] to-[color:var(--white-color)]">
+                            <img class="w-10 h-10 mr-6 sm:h-8 sm:w-8 sm:mr-3"
+                                src="./assets/img/intro/intro_locazilation.png" alt="intro_locazilation">
+                            <div class="text-2xl font-medium lg:text-base smd:text-sm">TƯ VẤN PHÁP LÝ BẢN ĐỊA <br>
+                                (VELA LOCALIZATIONS)</div>
+                        </div>
+                        <div
+                            class="flex items-center mb-10 lg:mb-4 smd:mb-4 bg-gradient-to-r from-[color:var(--white02-color)] to-[color:var(--white-color)]">
+                            <img class="w-10 h-10 mr-6 sm:h-8 sm:w-8 sm:mr-3"
+                                src="./assets/img/intro/intro_telesale.png" alt="intro_telesale">
+                            <div class="text-2xl font-medium lg:text-base smd:text-sm">TƯ VẤN CHỐT ĐƠN, CHĂM SÓC KHÁCH
+                                HÀNG <br>
+                                (VELA TELESALES)</div>
+                        </div>
+                        <div
+                            class="flex items-center mb-10 lg:mb-4 smd:mb-4 bg-gradient-to-r from-[color:var(--white02-color)] to-[color:var(--white-color)]">
+                            <img class="w-10 h-10 mr-6 sm:h-8 sm:w-8 sm:mr-3"
+                                src="./assets/img/intro/intro_fulfillment.png" alt="intro_fulfillment">
+                            <div class="text-2xl font-medium lg:text-base smd:text-sm">LƯU KHO, KIỂM HÀNG, ĐÓNG GÓI, THU
+                                COD <br>
+                                (VELA FULFILLMENT)</div>
+                        </div>
+                        <div
+                            class="flex items-center mb-10 lg:mb-4 smd:mb-4 bg-gradient-to-r from-[color:var(--white02-color)] to-[color:var(--white-color)]">
+                            <img class="w-10 h-10 mr-6 sm:h-8 sm:w-8 sm:mr-3"
+                                src="./assets/img/intro/intro_logistic.png" alt="intro_logistic">
+                            <div class="text-2xl font-medium lg:text-base smd:text-sm">VẬN CHUYỂN QUỐC TẾ & NỘI ĐỊA <br>
+                                (VELA LOGISTICS)</div>
+                        </div>
+                        <div
+                            class="flex items-center mb-10 lg:mb-4 smd:mb-4 bg-gradient-to-r from-[color:var(--white02-color)] to-[color:var(--white-color)]">
+                            <img class="w-10 h-10 mr-6 sm:h-8 sm:w-8 sm:mr-3"
+                                src="./assets/img/intro/intro_sourcing.png" alt="intro_sourcing">
+                            <div class="text-2xl font-medium lg:text-base smd:text-sm">ĐÀM PHÁN, MUA HÀNG HỘ <br>
+                                (VELA SOURCING)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="mw-1200 mx-auto my-0 lg:mw-984 md:mw-668 bg-[color:var(--white-color)]">
+            <h3
+                class="text-center w-[98%] mx-auto text-4xl font-semibold mb-[18px] pt-9 md:text-2xl sm:text-xl sm:pt-6 sm:w-[96%] sm:text-xl">
+                Vì sao chọn VELA ONE?
+            </h3>
+            <div class="border-t-4 border-[color:var(--primary-color)] w-1/5 mx-auto mb-14 smd:mb-6"></div>
+            <div class="w-4/5 mx-auto smd:w-[98%]">
+                <div class="row-pc-big justify-between lg:row-pc smd:row-tl-mb">
+                    <div class="px-3 lg:px-2 smd:px-1 mb-9 smd:mb-5">
+                        <h4 class="font-semibold text-2xl ml-9 smd:text-base smd:ml-3">CÔNG TY ĐA QUỐC GIA</h4>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">7+ năm hình thành và phát triển</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">10 văn phòng và kho bãi tại 6 quốc gia</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">6000 khách hàng sử dụng dịch vụ</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">Năng lực vận hành: 50.000 đơn/ngày</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-pc-big justify-between lg:row-pc smd:row-tl-mb">
+                    <div class="px-3 lg:px-2 smd:px-1 mb-9 smd:mb-5">
+                        <h4 class="font-semibold text-2xl ml-9 smd:text-base smd:ml-3">NĂNG LỰC VẬN HÀNH VƯỢT TRỘI</h4>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">Tỷ lệ chốt đơn cao</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">Telesales chuyên nghiệp, hiệu quả</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">Hệ thống CSKH hơn 10.000 nhà bán</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-pc-big justify-between lg:row-pc smd:row-tl-mb">
+                    <div class="px-3 lg:px-2 smd:px-1 mb-9 smd:mb-5">
+                        <h4 class="font-semibold text-2xl ml-9 smd:text-base smd:ml-3">HỆ THỐNG QUẢN LÝ ĐƠN HÀNG</h4>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">Tự động hóa</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">Thông minh, hiện đại, minh bạch</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-pc-big justify-between lg:row-pc smd:row-tl-mb">
+                    <div class="px-3 lg:px-2 smd:px-1 mb-10 smd:mb-6">
+                        <h4 class="font-semibold text-2xl ml-9 smd:text-base smd:ml-3">LỢI ÍCH TỐI ĐA, THỜI GIAN TỐI
+                            THIỂU</h4>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">Tiết kiệm chi phí</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">Giảm thiểu rủi ro</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">Gia tăng lợi nhuận</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="relative bg-[color:var(--primary-color)] rounded-full w-3.5 h-3.5 mr-2.5">
+                                <div
+                                    class="absolute rotate-45 translate-x-[30%] translate-y-[-50%] left-[30%] top-[45%] w-1 h-2 border-b-[2px] border-r-[2px] border-solid border-white">
+                                </div>
+                            </div>
+                            <div class="font-normal text-lg smd:text-sm">Dòng tiện COD: nhanh chóng, đơn giản</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="mw-1200 mx-auto my-0 lg:mw-984 md:mw-668 bg-[color:var(--white-color)]">
+            <div class="mx-auto w-1/4 text-base cursor-pointer mb-4">
+                <img src="./assets/img/logofooter.svg" alt="logo">
+            </div>
+                <div class="flex w-11/12 mx-auto justify-between smd:w-[98%] smd:flex-col">
+                    <div class="w-2/3 smd:w-full lg:w-3/5 smd:mb-2">
+                        <did class="text-lg font-normal">
+                            Công ty Cổ phần Thương mại và Dịch vụ Công nghệ Velacorp
+                            <br> VELA HUB Building - 175 Phan Chu Trinh, P. 13, Q. Bình Thạnh, <br class="xl:hidden smd:hidden"> TP. HCM 
+                        </did>
+                    </div>
+                    <div class="w-1/3 smd:w-full flex flex-col lg:w-2/5">
+                        <a href="tel:+8428 6276 2922" target="_blank" class="text-lg font-normal">
+                            Hotline: +8428 6276 2922
+                        </a>
+                        <a href="mailto:partners@vela.asia" target="_blank" class="text-lg font-normal">
+                            Email: partners@vela.asia
+                        </a>
+                        <a href="https://www.facebook.com/velaoffice" target="_blank" class="text-lg font-normal">
+                            Fanpage: https://www.facebook.com/velaoffice
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <!-- End intro -->
+    <!-- Begin Footer -->
+    <div class="mw-1200 mx-auto my-0 lg:mw-984 md:mw-668">
+        <div class="bg-[color:var(--background-subColor)]">
+            <h3 class="text-center w-full mx-auto text-4xl font-semibold mb-8 pt-12 sm:pt-8 sm:w-96p sm:text-xl">
+                Footer
+            </h3>
+        </div>
+    </div>
+    <!-- End Footer -->
+    </div>
+    <!-- animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 200,
+            duration: 1000,
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    sm: { max: "767px" },
+                    // => @media (max-width: 767px) { ... }
+
+                    md: { min: "768px", max: "1023px" },
+                    // => @media (min-width: 768px and max-width: 1023px) { ... }
+
+                    smd: { max: "1023px" },
+                    // => @media (max-width: 1023px) { ... }
+
+                    lg: { min: "1024px", max: "1279px" },
+                    // => @media (min-width: 1024px and max-width: 1279px) { ... }
+
+                    xl: { min: "1280px" },
+                    // => @media (min-width: 1280px) { ... }
+
+                    "2xl": { min: "1536px" },
+                    // => @media (min-width: 1536px) { ... }
+                },
+                extend: {
+                },
+                boxShadow: {
+                    'news': '0px 5px 5px rgba(0, 0, 0, 0.1)',
+                    'navbar': '0px 0px 5px rgba(0, 0, 0, 0.2)',
+                    'charge': '0px 0px 32px rgba(0, 0, 0, 0.1)',
+                    'reasonItem': '0px 0px 10px rgba(0, 0, 0, 0.1)',
+                },
+                backgroundSize: {
+                    'wh100': '100% 100%',
+                }
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+      @font-face {
+          font-family: Inter;
+          src: url(Fonts/Inter-VariableFont_slnt\,wght.ttf);
+      }
+
+      * {
+          scroll-behavior: smooth;
+      }
+
+
+      html {
+          font-size: 16px;
+          font-style: normal;
+          font-family: 'Inter';
+          color: var(--text-color);
+      }
+
+      body {
+          margin: 0;
+          padding: 0;
+          scroll-behavior: smooth;
+          box-sizing: border-box;
+          text-rendering: optimizeSpeed;
+          background-color: var(--background-color);
+      }
+      .mw-1200 {
+        max-width: 1200px;
+      }
+      .row-pc-big {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -12px;
+        margin-right: -12px;
+      }
+      .mw-984 {
+        width: 984px;
+      }
+      .row-pc {
+        margin-left: -8px;
+        margin-right: -8px;
+      }
+      .mw-668 {
+        width: 668px;
+      }
+      .row-tl-mb {
+        margin-left: -4px;
+        margin-right: -4px;
+      }
+      :root {
+          --primary-color: #ed1c24;
+          --primary-color--hover: rgba(246, 49, 51, 0.7);
+          --white-color: rgb(255, 255, 255, 1);
+          --white02-color: rgb(255, 255, 255, 0.2);
+          --black-color: rgb(0, 0, 0);
+
+          --background-color: rgb(245, 245, 245);
+          --background-subColor: rgb(249, 249, 249);
+          --background-ColorE8262D: rgb(232, 38, 45);
+          --background-ColorE8262D--hover: rgba(232, 38, 45, 0.7);
+          --background-ColorFAD4D5: rgb(250, 212, 213);
+
+          --text-color: rgb(57, 62, 74);
+          --subtext-color: rgb(95, 102, 119);
+          --text-colorF63133: rgb(246, 49, 51);
+
+          --underline-colorF1F1F2: rgb(241, 241, 242);
+
+          --borderNews-color: rgba(95, 102, 119, 0.5);
+          --borderNews-color--active: rgb(237, 28, 36);
+      }
+    }
+  </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="./assets/Fonts/fontawesome-free-6.1.1/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <title>WEB VLO - Inter.ai</title>
+</head>
+
+<body>
+    <div class="app">
+        <!-- Begin header -->
+        <header
+            class="mw-1200 mx-auto my-0 lg:mw-984 md:mw-668  xl:bg-green-100 lg:bg-cyan-100 md:bg-blue-100 sm:bg-lime-200">
+            <div class="w-10/12 flex justify-between items-center mx-auto my-4 sm:w-11/12">
+                <img onclick="window.location.href='https://velaone-homepage-html.vercel.app'"
+                    src="./assets/img/logo.svg" alt="logo" class="logo">
+                </img>
+                <div class="flex items-center leading-9 md:hidden sm:hidden">
+                    <a href="#" class="no-underline text-sm font-normal mr-6">Giới thiệu</a>
+                    <a href="#" class="no-underline text-sm font-normal mr-6">Biểu Phí</a>
+                    <a class="no-underline text-sm font-normal mr-6 group">
+                        Tin Tức
+                        <ul
+                            class="hidden group-hover:flex w-36 m-0 p-0 list-none flex-col absolute bg-[color:var(--white-color)] shadow-news z-10">
+                            <li onclick="window.location.href='https://velaone-homepage-html.vercel.app/serviceNews.html'"
+                                class="border-t border-solid border-[color:var(--borderNews-color)] hover:border-[color:var(--borderNews-color--active)]">
+                                <span
+                                    class="block h-7 leading-7 text-xs my-auto font-normal cursor-pointer ml-2 text-left">
+                                    Tin Dịch Vụ </span>
+                            </li>
+                            <li onclick="window.location.href='https://velaone-homepage-html.vercel.app/marketNews.html'"
+                                class="border-t border-solid border-[color:var(--borderNews-color)] hover:border-[color:var(--borderNews-color--active)]">
+                                <span
+                                    class="block h-7 leading-7 text-xs my-auto font-normal cursor-pointer ml-2 text-left">
+                                    Tin Thị Trường </span>
+                            </li>
+                        </ul>
+                    </a>
+                    <a href="https://velaone-homepage-html.vercel.app/register.html"
+                        class="no-underline text-sm font-normal mr-6">Liên Hệ</a>
+                    <button onclick="window.location.href='http://one.vela.asia/'"
+                        class="w-32 h-9 text-sm font-medium bg-[color:var(--primary-color)] hover:bg-[color:var(--primary-color--hover)] p-0 border-none rounded-lg cursor-pointer text-[color:var(--white-color)]">Đăng
+                        nhập</button>
+                </div>
+                <!-- mobile and tablet -->
+                <button class="js-menu hidden rounded cursor-pointer md:flex sm:flex">
+                    <i
+                        class="fa-solid fa-bars-staggered h-12 w-12 text-5xl text-[color:var(--primary-color)] p-0 border-none "></i>
+                </button>
+            </div>
+        </header>
+        <!-- End header -->
+        <!-- Begin intro -->
+        <div class="mw-1200 mx-auto my-0 lg:mw-984 md:mw-668 xl:bg-green-100 lg:bg-cyan-100 md:bg-blue-100 sm:bg-lime-200">
+            <div class="w-10/12 mx-auto smd:w-11/12 border-4 pl-8">
+                <h3 class="font-normal text-4xl mb-4 pt-4 smd:text-3xl smd:mb-1">Hướng dẫn</h3>
+                <hr class="mb-3">
+                <div class="row-pc-big justify-between smd:justify-center lg:row-pc smd:row-tl-mb">
+                    <div class="px-3 lg:px-2 smd:px-1 w-full">
+                        <div class="w-full">
+                            <div id="dropdown" class="text-2xl font-normal mb-3 smd:mb-5">Mua hàng, nhập hàng và quản lý Logistic quốc tế &nbsp
+                                <i id="angleRight" class="fa-solid fa-angle-right text-2xl text-[color:var(--primary-color)] p-0 border-none"></i>
+                                <i id="angleDown" class="fa-solid fa-angle-down text-2xl text-[color:var(--primary-color)] p-0 border-none hidden"></i>
+                            </div>
+                            <ul class="hidden pl-4">
+                                <li class="text-xl mb-2 hover:bg-[color:var(--primary-color)]">Hướng dẫn mua hàng Trung Quốc</li>
+                                <li class="text-xl mb-2 hover:bg-[color:var(--primary-color)]">Hướng dẫn mua hàng nước sở tại</li>
+                                <li class="text-xl mb-2 hover:bg-[color:var(--primary-color)]">Hướng dẫn nạp tiền mua hàng</li>
+                            </ul>
+                        </div>
+                        <div class="w-full">
+                            <div id="dropdown1" class="text-2xl font-normal mb-3 smd:mb-5">Hướng dẫn xem báo cáo &nbsp
+                                <i id="angleRight1" class="fa-solid fa-angle-right text-2xl text-[color:var(--primary-color)] p-0 border-none"></i>
+                                <i id="angleDown1" class="fa-solid fa-angle-down text-2xl text-[color:var(--primary-color)] p-0 border-none hidden"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    <!-- End intro -->
+    <!-- Begin Footer -->
+    <div class="mw-1200 mx-auto my-0 lg:mw-984 md:mw-668">
+        <div class="bg-[color:var(--background-subColor)]">
+            <h3 class="text-center w-full mx-auto text-4xl font-semibold mb-8 pt-12 sm:pt-8 sm:w-[96%] sm:text-xl">
+                Footer
+            </h3>
+        </div>
+    </div>
+    <!-- End Footer -->
+    </div>
+    <!-- animation -->
+    <script>
+        const dropdownButton = document.querySelector("#dropdown");
+        const angleRight = document.querySelector("#dropdown > #angleRight");
+        const angleDown = document.querySelector("#dropdown > #angleDown");
+        const dropdownList = document.querySelector("#dropdown + ul.hidden");
+
+        dropdownButton.addEventListener("click", () => {
+        dropdownList.classList.toggle("hidden");
+        angleRight.classList.toggle("hidden");
+        angleDown.classList.toggle("hidden");
+        });
+
+        // 11
+        const dropdownButton1 = document.querySelector("#dropdown1");
+        const angleRight1 = document.querySelector("#dropdown1 > #angleRight1");
+        const angleDown1 = document.querySelector("#dropdown1 > #angleDown1");
+
+        dropdownButton1.addEventListener("click", () => {
+        angleRight1.classList.toggle("hidden");
+        angleDown1.classList.toggle("hidden");
+        });
+
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 200,
+            duration: 1000,
+        });
+    </script>
+</body>
+
+</html>
